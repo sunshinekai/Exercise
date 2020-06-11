@@ -1,5 +1,5 @@
 /*
-选择题：
+选择题
 
 1.能把函数处理结果的二个数据返回给主调函数，在下面的方法中不正确的是（A）
 A return这二个数
@@ -87,6 +87,8 @@ F 程序错误
 
 
 /*
+编程题
+
 1.
 读入一个字符串str，输出字符串str中的连续最长的数字串
 链接：https://www.nowcoder.com/practice/bd891093881d4ddf9e56e7cc8416562d?tpId=85&&tqId=29864&rp=1&ru=/activity/oj&qru=/ta/2017test/question-ranking
