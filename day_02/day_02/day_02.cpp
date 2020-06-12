@@ -1,4 +1,50 @@
 /*
+选择题：
+请将下列构造函数补充完整，使得程序的运行结果是5(B)
+
+#include<iostream>
+using namespace std;
+class Sample
+{
+public:
+	Sample(int x)
+	{
+		_________
+	} 
+	~Sample()
+	{
+		if(p)
+		delete p;
+	}
+	int show()
+	{
+		return *p;
+}
+private:
+	int*p;
+};
+
+int main()
+{
+	Sample S(5);
+	cout << S.show() << endl;
+	return 0;
+}
+A *p=x;
+B p=new int(x);
+C *p=new int(x);
+D p=&x;
+
+A、*p = x，把x的值赋值给指针p指向的内存空间，但是p之前没有指向任何一块内存空间，所以这个操作非法
+B、p = new int(x)，新申请一块内存空间，内存空间中的值是x，并且把这块内存空间赋值给p，p也就指向了这块内存空间。并且程序结束后也不释放这块内存空间。
+C、*p = new int(x)。由于p之前没有指向任何一块内存空间，所以直接给*p赋值是错误的。（*p表示p指向的内存空间。）
+D、p = &x，表示把x的地址赋值给p，但是这里的x 是形参，函数调用结束后x就被释放了，所以*p就找不到x。
+*/
+
+
+/*
+编程题：
+
 1.
 链接：https://www.nowcoder.com/questionTerminal/2d3f6ddd82da445d804c95db22dcc471?orderByHotValue=1&page=1&onlyReference=false
 
