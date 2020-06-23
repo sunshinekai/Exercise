@@ -216,12 +216,14 @@ int getLuckyPacket(int x[], int n, int pos, int sum, int multi)
 		{
 			//找到符合要求的组合，加1，继续累加后续的值，看是否有符合要求的集合
 			count += 1 + getLuckyPacket(x, n, i + 1, sum, multi);
-		} 
+		}
+		
 		else if (x[i] == 1)
 		{
 			//如何不符合要求，且当前元素值为1，则继续向后搜索
 			count += getLuckyPacket(x, n, i + 1, sum, multi);
-		} 
+		}
+
 		else
 		{
 			//如何sum大于multi,则后面就没有符合要求的组合了
