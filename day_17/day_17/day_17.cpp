@@ -197,54 +197,86 @@ int main()
 	} 
 	return 0;
 }
-//#include <iostream>
-//#include <string>
-//using namespace std;
-//
-//string AddLongInteger(string addend, string augend)
-//{
-//	int len1 = addend.size() - 1;
-//	int len2= augend.size() - 1;
-//	int gap = 0;     //进位记录
-//	string ret;
-//	int sum = 0;
-//	while (len1 >= 0 || len2 >= 0)
-//	{
-//		sum = 0;
-//		sum += gap;
-//		if (len1 >= 0)
-//			sum += addend[len1] - '0';
-//
-//		if (len2 >= 0)
-//			sum += augend[len2] - '0';
-//
-//		if (sum >= 10)
-//		{
-//			sum -= 10;
-//			gap = 1;
-//		}
-//		else
-//		{
-//			gap = 0;       //如果没有进位step要更新为0
-//		}
-//		ret.insert(0, 1, sum + '0');
-//		len1--;
-//		len2--;
-//
-//	}
-//	if (gap == 1)
-//		ret.insert(0, 1, '1');
-//
-//	return ret;
-//}
-//
-//int main()
-//{
-//	string str1, str2;
-//	while (cin >> str1 >> str2)
-//	{
-//		string ret = AddLongInteger(str1, str2);
-//		cout << ret << endl;
-//	}
-//	return 0;
-//}
+
+
+/*
+思路：按照数学规律
+*/
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int n;
+	while (cin >> n)
+	{
+		int pos = 0;
+		if (n == 1 || n == 2)
+			pos = -1;
+		else if (n % 2 == 1 && n > 2)
+			pos = 2;
+		else if (n % 4 == 0)
+			pos = 3;
+		else
+			pos = 4;
+		cout << pos << endl;
+	}
+	return 0;
+}
+
+/*
+2.
+链接：https://www.nowcoder.com/practice/5821836e0ec140c1aa29510fd05f45fc?tpId=37&&tqId=21301&rp=1&ru=/activity/oj&qru=/ta/huawei/question-ranking
+请设计一个算法完成两个超长正整数的加法。
+输入
+99999999999999999999999999999999999999999999999999
+1
+输出
+100000000000000000000000000000000000000000000000000
+*/
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+string addStrings(string num1, string num2) 
+{
+	// 由低位向高位相加
+	int i = num1.size() - 1;
+	int j = num2.size() - 1;
+	string result = "";
+	// 当前位的相加结果
+	int carry = 0;
+	while (i >= 0 || j >= 0)
+	{
+		if (i >= 0) 
+			carry += num1[i] - '0';
+		
+		if(j >= 0)
+			carry += num2[j] - '0';
+		// 当前为的最大值不大于10
+		result += (char)(carry % 10 + '0');
+		// 如果大于10,向上进一位
+		carry /= 10;
+		i--;
+		j--;
+	}
+	// 相加完之后，如果还有进位，则再加1
+	if(carry == 1) 
+		result += '1';
+	// 整体逆置
+	reverse(result.begin(), result.end());
+	return result;
+} 
+
+int main()
+{
+	string s1, s2;
+	while (cin >> s1 >> s2)
+	{
+		cout << addStrings(s1, s2) << endl;
+	} 
+	return 0;
+}
