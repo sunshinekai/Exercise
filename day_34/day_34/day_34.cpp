@@ -1,4 +1,33 @@
 /*
+选择题
+
+1.
+TCP断开连接的四次挥手中，第四次挥手发送的包会包含的标记，最正确的描述是(C)
+A FIN
+B FIN,PSH
+C ACK
+D FIN,ACK
+注：FIN是第三次的内容
+
+
+2.
+某浏览器发出的HTTP 请求报文如下：
+下列叙述中，错误的是(C)
+A 该浏览器请求浏览 index.html
+B Index.html 存放在 www.test.edu.cn 上
+C 该浏览器请求使用持续连接
+D 该浏览器曾经浏览过 www.test.edu.cn
+
+注：
+Connection: 连接方式，   
+Close 表明为非持续连接方式，   
+keep-alive 表示持续连接方式。 
+Cookie值是由服务器产生的，  
+HTTP请求报文中有Cookie报头表示曾经访问过www.test.edu.cn服务器。
+*/
+
+
+/*
 编程题
 
 1.
